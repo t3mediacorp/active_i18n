@@ -2,7 +2,9 @@
 ActiveAdmin.module_eval do
   def self.register_translation name, menu_options = {}
 
-    self.register_page name do
+    return if ENV['T3_RAILS_TRANSLATIONS'].nil?
+
+    self.register_page name do      
       menu({:label => proc{ I18n.t("active_i18n.labels.translations") }}.merge(menu_options))
 
       sidebar "Translations", :class => "active", :partial => "active_i18n/sidebar"
