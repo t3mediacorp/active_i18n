@@ -14,7 +14,8 @@
                 = t(I18n.default_locale, :scope => "active_i18n.languages")
             .content-wrapper
               .content
-                = I18n.t(key_value[0], :scope => params[:scope], :locale => I18n.default_locale)
+                %h5.key= "Key: #{key_value[0]}"
+                %h5.value= "#{I18n.t(key_value[0], :scope => params[:scope], :locale => I18n.default_locale)}"
           .translated
             .lang
               %p
